@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            padding: 50px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .box {
+            background-color: rgb(191, 223, 235);
+            border-radius: 10px;
+            box-shadow: 4px 4px rgb(191, 223, 235);
+            width: 300px;
+            height: 400px;
+            padding: 20px;
+        }
+
+        .box #weather-cond {
+            margin-top: 50px;
+            margin-left: 130px;
+        }
+
+        .fa-sun {
+            font-size: 50px;
+        }
+
+        .box #info {
+            text-align: center;
+        }
+
+        .box #info .location .fa-street-view {
+            margin-right: 5px;
+            color: rgb(255, 255, 255);
+        }
+
+        .box #date {
+            font-weight: bold;
+        }
+
+        .box .temp {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .box .min-max-temp {
+            font-weight: lighter;
+            color: white;
+            padding: 30px;
+        }
+
+        .box .min-max-temp #min-temp {
+            float: left;
+        }
+
+        .box .min-max-temp #max-temp {
+            float: right;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <div id="weather-cond">
+            <i class="fas fa-sun" style="color: rgb(255, 208, 0);"></i>
+        </div>
+        <div id="info">
+            <h2 class="location">
+                <i class="fas fa-street-view"></i>{%location%}, {%country%}
+            </h2>
+            <p id="date">WED| JAN 09| 10:10AM</p>
+        </div>
+        <h1 class="temp">{%tempval%}</h1>
+        <h3 class="min-max-temp">
+            <span id="min-temp">{%tempmin%}</span> <span id="max-temp">{%tempmax%}</span>
+        </h3>
+    </div>
+
+    <script>
+        let currDate = document.getElementById("date");
+        let weather_cond = document.getElementById('weather-cond');
+        const tempStatus = "Clouds"
+
+
+
+
+        const getcurrentDay = () => {
+            let weekday = new Array(7);
+            weekday[0] = "SUN"
+            weekday[1] = "MON"
+            weekday[2] = "TUE"
+            weekday[3] = "WED"
+            weekday[4] = "THURS"
+            weekday[5] = "FRI"
+            weekday[6] = "SAT"
+            let currentTime = new Date()
+            let day = weekday[currentTime.getDay()]
+            return day
+        }
+        const getCurrentTime = (e) => {
+
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var now = new Date()
+            var month = now.getMonth();
+            var day = now.getDate();
+            var year = now.getFullYear();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+
+            let time = `${months[month]} ${day} | ${hours}:${minutes}`
+            return time
+        }
+        currDate.innerHTML = getcurrentDay() + " | " + getCurrentTime()
+
+
+
+    </script>
+</body>
+
+</html>

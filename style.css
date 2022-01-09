@@ -1,0 +1,64 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.box{
+    background-color: rgb(191, 223, 235);
+    border-radius: 10px;
+    box-shadow: 4px 4px rgb(191,223,235);
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+}
+.box #weather-cond{
+    margin-top: 50px;
+    margin-left: 130px;
+}
+.fa-sun{
+    font-size: 50px;
+}
+
+.box #info{
+    text-align: center;
+}
+.box #info .location .fa-street-view{
+    margin-right: 5px;
+    color: rgb(255, 255, 255);
+}
+.box #date{
+    font-weight: bold;
+}
+.box .temp{
+    text-align: center;
+    margin-top: 50px;
+}
+.box .min-max-temp{
+    font-weight: lighter;
+    color: white;
+    padding: 30px;
+}
+.box .min-max-temp #min-temp{
+    float: left;
+}
+.box .min-max-temp #max-temp{
+    float: right;
+}
+.wave{
+    opacity: 0.3;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    width: 50rem;
+    height: 50rem;
+    margin-left: -25rem;
+    margin-top: -25rem;
+    transform-origin: 50% 48%;
+    border-radius: 4.3%;
+    animation: drift 3000ms infinite linear;
+    z-index: 1;
+}
